@@ -14,7 +14,7 @@ class TestTable(unittest.TestCase):
         logo = Logo(1, 1)
         table = Table(10, logo)
 
-        expectedResult = "x x x x x l x x x x x"
+        expectedResult = "x x x x x l x x x x x \n"
 
         self.assertEqual(table.print(), expectedResult)
 
@@ -22,7 +22,7 @@ class TestTable(unittest.TestCase):
         logo = Logo(1, 2)
         table = Table(12, logo)
 
-        expectedResult = "x x x l x x x\nx x x l x x x"
+        expectedResult = "x x x l x x x \nx x x l x x x \n"
 
         self.assertEqual(table.print(), expectedResult)
 

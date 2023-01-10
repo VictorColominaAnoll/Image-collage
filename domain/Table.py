@@ -10,18 +10,17 @@ class Table():
         if(self.logo == None):
             return ""
         
-        rows_length = int((self.logo.columns + self.number_of_images) / self.logo.columns)
-        print(rows_length)
-
-        columns_length = self.logo.columns
+        rows_length = self.logo.columns
+        columns_length = int((self.logo.columns + self.number_of_images) / self.logo.columns)
         
         result = ""
 
-        for row in (0, rows_length):
-            for col in (0, columns_length):
+        for row in range(0, rows_length):
+            for col in range(0, columns_length):
                 if(int(columns_length / 2) == col):
                     result = result + "l "
                 else:
                     result = result + "x "
-        
+            result = result + "\n"
+
         return result
