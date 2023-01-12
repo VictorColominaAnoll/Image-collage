@@ -19,12 +19,28 @@ class TestTable(unittest.TestCase):
         self.assertEqual(table.print(), expectedResult)
 
     def test_2_should_return_table_with_some_content(self):
-        logo = Logo(1, 2)
-        table = Table(12, logo)
+        logo = Logo(2, 1)
+        table = Table(14, logo)
 
         expectedResult = "x x x l x x x \nx x x l x x x \n"
 
         self.assertEqual(table.print(), expectedResult)
+
+    def test_3_should_return_table_with_some_content(self):
+        logo = Logo(1, 2)
+        table = Table(11, logo)
+
+        expectedResult = "x x x x x x l l x x x x x \n"
+
+        self.assertEqual(table.print(), expectedResult)
+
+    # def test_3_should_return_table_with_some_content(self):
+    #     logo = Logo(2, 3)
+    #     table = Table(12, logo)
+
+    #     expectedResult = "x x l l x x \nx x l l x x \nx x l l x x \n"
+
+    #     self.assertEqual(table.print(), expectedResult)
 
 
 
