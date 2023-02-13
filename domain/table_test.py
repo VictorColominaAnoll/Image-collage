@@ -1,6 +1,5 @@
 import unittest
-from Table import Table
-from Logo import Logo
+from table import Table
 
 class TestTable(unittest.TestCase):
     def test_0_should_return_an_empty_table(self):
@@ -11,47 +10,36 @@ class TestTable(unittest.TestCase):
         self.assertEqual(table.print(), expectedResult)
 
     def test_1_should_return_table_with_some_content(self):
-        logo = Logo(1, 1)
-        table = Table(10, logo)
+        table = Table(60)
 
-        expectedResult = "x x x x x l x x x x x \n"
+        expectedResult = "xxxxxxxxsxxxxxxxxsxxxxxxxxsxxxllxxxsxxxllxxxsxxxxxxxxsxxxxxxxxsxxxxxxxxs"
 
         self.assertEqual(table.print(), expectedResult)
-
+    
     def test_2_should_return_table_with_some_content(self):
-        logo = Logo(2, 1)
-        table = Table(14, logo)
+        table = Table(59)
 
-        expectedResult = "x x x l x x x \nx x x l x x x \n"
+        expectedResult = "xxxxxxxxsxxxxxxxxsxxxxxxxxsxxxllxxxsxxxllxxxsxxxxxxxxsxxxxxxxxsxxxxxxxs"
 
         self.assertEqual(table.print(), expectedResult)
 
     def test_3_should_return_table_with_some_content(self):
-        logo = Logo(1, 2)
-        table = Table(11, logo)
+        table = Table(32)
 
-        expectedResult = "x x x x x x l l x x x x x \n"
+        expectedResult = "xxxxxxsxxxxxxsxxllxxsxxllxxsxxxxxxsxxxxxxs"
+
+        self.assertEqual(table.print(), expectedResult)
+    
+    def test_4_should_return_error_if_custom_rows_x_columns_are_lower_than_total_number_of_images(self):
+        with self.assertRaises(Exception):
+            Table(11, 3, 2)
+
+    def test_5_should_return_table_with_custom_rows_and_columns(self):
+        table = Table(13, 5, 4)
+
+        expectedResult = "xxxxsxllxsxllxsxxxxsx"
 
         self.assertEqual(table.print(), expectedResult)
 
-    # def test_3_should_return_table_with_some_content(self):
-    #     logo = Logo(2, 3)
-    #     table = Table(12, logo)
-
-    #     expectedResult = "x x l l x x \nx x l l x x \nx x l l x x \n"
-
-    #     self.assertEqual(table.print(), expectedResult)
-
-
-
-
 if __name__ == '__main__':
     unittest.main()
-
-
-"""
-TODO:
-- Printar el contenido
-- Tener espacios en blanco
-- Tener el tamaño de las piezas (en este caso van a ser de 1) 
-"""
