@@ -29,17 +29,8 @@ class TestTable(unittest.TestCase):
         expectedResult = "xxxxxxsxxxxxxsxxllxxsxxllxxsxxxxxxsxxxxxxs"
 
         self.assertEqual(table.print(), expectedResult)
-    
-    def test_4_should_return_error_if_custom_rows_x_columns_are_lower_than_total_number_of_images(self):
-        with self.assertRaises(Exception):
-            Table(11, 3, 2)
 
-    def test_5_should_return_table_with_custom_rows_and_columns(self):
-        table = Table(13, 5, 4)
-
-        expectedResult = "xxxxsxllxsxllxsxxxxsx"
-
-        self.assertEqual(table.print(), expectedResult)
+# TODO: en vez de utilizar una distribucion de quadrado, hay que modificarlo para hacerlo en formato rectangulo
 
 if __name__ == '__main__':
     unittest.main()

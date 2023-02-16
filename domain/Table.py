@@ -1,21 +1,10 @@
 class Table():
     
-    def __init__(self, number_of_images, rows=None, columns=None):
+    def __init__(self, number_of_images):
         self.logo_size = 4
         self.number_of_images = number_of_images
 
-        if(rows == None and columns == None):
-            squareSize = self.getSquareSize(number_of_images)
-            self.size_of_the_square_side = squareSize
-            self.rows = squareSize
-            self.columns = squareSize
-        else:
-            if((rows * columns) < (number_of_images + self.logo_size)):
-                raise Exception("Provided row and column size are not valid")
-
-            self.size_of_the_square_side = rows * columns
-            self.rows = rows
-            self.columns = columns
+        self.size_of_the_square_side = self.getSquareSize(number_of_images)
 
     def getTotalImageSize(self):
         image_size = 100
@@ -29,18 +18,14 @@ class Table():
             return ""
 
         logo_coordinate = int((self.size_of_the_square_side / 2) - 1)
+        return self.getImagesDistribution(logo_coordinate)
 
-        if(self.rows == None):
-            return self.getImagesDistribution(logo_coordinate, self.size_of_the_square_side, self.size_of_the_square_side)
-        else:
-            return self.getImagesDistribution(logo_coordinate, self.rows, self.columns)
-
-    def getImagesDistribution(self, logo_coordinate, rows, columns):
+    def getImagesDistribution(self, logo_coordinate):
         result = ""
         images_count = 0
  
-        for row in range(0, rows):
-            for col in range(0, columns):
+        for row in range(0, self.size_of_the_square_side):
+            for col in range(0, self.size_of_the_square_side):
                 if(images_count < self.number_of_images): 
                     if(self.isLogoCoordinate(row, col, logo_coordinate)):
                         result = result + "l"
