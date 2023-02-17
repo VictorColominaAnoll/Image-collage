@@ -10,27 +10,28 @@ class TestTable(unittest.TestCase):
         self.assertEqual(table.print(), expectedResult)
 
     def test_1_should_return_table_with_some_content(self):
-        table = Table(60)
+        table = Table(125)
 
-        expectedResult = "xxxxxxxxsxxxxxxxxsxxxxxxxxsxxxllxxxsxxxllxxxsxxxxxxxxsxxxxxxxxsxxxxxxxxs"
+        self.assertEqual(table.getImageLength(), 84)
+        self.assertEqual(table.getImageHeight(), 89)
 
+        self.assertEqual(table.getLogoLength(), 266)
+        self.assertEqual(table.getLogoHeight(), 202)
+
+        expectedResult = "xxxxxxxxxxxxxxsxxxxxxxxxxxxxxsxxxxxxxxxxxxxxsxxxxxxllxxxxxxsxxxxxxllxxxxxxsxxxxxxxxxxxxxxsxxxxxxxxxxxxxxsxxxxxxxxxxxxxxsxxxxxxxxxxxxx"
         self.assertEqual(table.print(), expectedResult)
     
     def test_2_should_return_table_with_some_content(self):
-        table = Table(59)
+        table = Table(89)
 
-        expectedResult = "xxxxxxxxsxxxxxxxxsxxxxxxxxsxxxllxxxsxxxllxxxsxxxxxxxxsxxxxxxxxsxxxxxxxs"
+        self.assertEqual(table.getImageLength(), 106)
+        self.assertEqual(table.getImageHeight(), 104)
 
+        self.assertEqual(table.getLogoLength(), 310)
+        self.assertEqual(table.getLogoHeight(), 232)
+
+        expectedResult = "xxxxxxxxxxxxsxxxxxxxxxxxxsxxxxxxxxxxxxsxxxxxllxxxxxsxxxxxllxxxxxsxxxxxxxxxxxxsxxxxxxxxxxxxsxxxxx"
         self.assertEqual(table.print(), expectedResult)
-
-    def test_3_should_return_table_with_some_content(self):
-        table = Table(32)
-
-        expectedResult = "xxxxxxsxxxxxxsxxllxxsxxllxxsxxxxxxsxxxxxxs"
-
-        self.assertEqual(table.print(), expectedResult)
-
-# TODO: en vez de utilizar una distribucion de quadrado, hay que modificarlo para hacerlo en formato rectangulo
 
 if __name__ == '__main__':
     unittest.main()

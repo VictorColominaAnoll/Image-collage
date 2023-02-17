@@ -30,15 +30,16 @@ table = Table(len(images))
 
 isLogoIncluded = False
 
-x_image_size = 100
-y_image_size = 100
+x_image_size = table.getImageLength()
+y_image_size = table.getImageHeight()
 
-x_logo_size = 250
-y_logo_size = 250
+x_logo_size = table.getLogoLength()
+y_logo_size = table.getLogoHeight()
 
-white_space_size = 25
+x_white_space_size = 50
+y_white_space_size = 25
 
-blank_image = Image.new(mode = "RGB", size = (table.getTotalImageSize(), table.getTotalImageSize()), color="white")
+blank_image = Image.new(mode = "RGB", size = (1920, 1080), color="white")
 
 logo = Image.open("main_logo.png")
 logo = logo.resize((x_logo_size, y_logo_size))
@@ -59,6 +60,6 @@ for index in range(0, len(distribution)):
     
     if(current_value == "s"):
         x = 50
-        y = y + y_image_size +  white_space_size
+        y = y + y_image_size +  y_white_space_size
     else:
-        x = x + x_image_size + white_space_size
+        x = x + x_image_size + x_white_space_size
